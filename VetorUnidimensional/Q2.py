@@ -10,7 +10,7 @@ for i in range(100):
 
 num_no_rep=[]
 
-for i in range(10):
+for i in range(100):
     if numeros[i] not in num_no_rep:
         num_no_rep.append(numeros[i])
 

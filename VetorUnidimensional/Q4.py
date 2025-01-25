@@ -8,13 +8,15 @@ for i in range(100):
     numeros[i] = random.randint(1, 40)
 
 numeros_repetidos=[]
-count=0
+numeros_freq=[0] * 100
 
 for i in range(100):
     if numeros[i] not in numeros_repetidos:
-       numeros_repetidos.append(numeros[i])
-    elif numeros[i] in numeros_repetidos:
-        count+=1
+        numeros_repetidos.append(numeros[i])
+    for j in range(100):
+        if numeros[i] in numeros_repetidos[i]:
+            numeros_freq+=1
 
-for j in range(100):
-    print(f"Os números se repetem {count} vezes")
+print(f"Os números que se repetem mais são {numeros_freq} vezes")
+
+# RESOLVER A 4!
