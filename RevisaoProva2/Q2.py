@@ -16,11 +16,8 @@ for i in range(20):
 for linha in M:
     print(linha)
 
-K=int(input("Digite valor para saber quantos tem na matriz: "))
-count=0
+K=int(input("Digite valor para saber onde está na matriz: "))
 for i in range(20):
     for j in range(50):
         if M[i][j]==K:
-            count+=1
-
-print(f"Há {count} número {K}")
+            print(i, j)
