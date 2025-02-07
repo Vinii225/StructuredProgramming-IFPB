@@ -3,30 +3,40 @@
 # Escreva um programa, em Python, para ler uma matriz quadrada (de ordem “N”) e
 # verificar se ela é um quadrado mágico.
 
-import random
+def eh_quadrado_magico(matriz, n):
+    soma_ref = sum(matriz[0])
+    
+    # Verifica somas das linhas
+    for linha in matriz:
+        if sum(linha) != soma_ref:
+            return False
+    
+    # Verifica somas das colunas
+    for j in range(n):
+        if sum(matriz[i][j] for i in range(n)) != soma_ref:
+            return False
+    
+    # Verifica soma da diagonal principal
+    if sum(matriz[i][i] for i in range(n)) != soma_ref:
+        return False
+    
+    # Verifica soma da diagonal secundária
+    if sum(matriz[i][n-i-1] for i in range(n)) != soma_ref:
+        return False
+    
+    return True
 
-linhas=[0]*4
+# Leitura da matriz
+n = int(input("Digite a ordem da matriz: "))
+matriz = []
 
-for i in range(4):
-    linhas.append(random.randint(0,10))
-print(linhas)
+print("Digite os elementos da matriz linha por linha:")
+for i in range(n):
+    linha = list(map(int, input().split()))
+    matriz.append(linha)
 
-
-
-
-
-# SOMAS DE ELEMENTOS EM CADA LINHA LINHAS
-soma=0
-for i in range(5):
-    for j in range(5):
-        soma=M[j][i]
-        print(f"A linha {i} possui soma de: {soma}")
-print(M)
-
-# SOMA DE ELEMENTOS COLUNAS
-
-# SOMA DE ELEMENTOS DIAGONAL PRINC.
-
-# SOMA DE ELEMENTOS DIAGONAL SENC.
-
-
+# Verifica se é quadrado mágico
+if eh_quadrado_magico(matriz, n):
+    print("A matriz é um quadrado mágico.")
+else:
+    print("A matriz não é um quadrado mágico.")

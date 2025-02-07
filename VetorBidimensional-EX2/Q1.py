@@ -3,15 +3,22 @@
 # Escreva um programa, em Python, para ler uma matriz quadrada (de ordem “N”) e
 # verificar se ela é a matriz identidade.
 
-import random
+def eh_matriz_identidade(matriz, n):
+    for i in range(n):
+        for j in range(n):
+            if (i == j and matriz[i][j] != 1) or (i != j and matriz[i][j] != 0):
+                return False
+    return True
 
-M=[]
+n = int(input("Digite a ordem da matriz: "))
+matriz = []
 
-for i in range(20):
-    linha=[]
-    for j in range(50):
-        linha.append(random.randint(0, 100))
-    M.append(linha)
+print("Digite os elementos da matriz linha por linha:")
+for i in range(n):
+    linha = list(map(int, input().split()))
+    matriz.append(linha)
 
-for linha in M:
-    print(linha)
+if eh_matriz_identidade(matriz, n):
+    print("A matriz é identidade.")
+else:
+    print("A matriz não é identidade.")
